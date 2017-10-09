@@ -1,3 +1,5 @@
+import org.assertj.core.api.AbstractBigDecimalAssert;
+
 public class Fraction {
     private int numerator;
     private int denominator;
@@ -38,5 +40,23 @@ public class Fraction {
 
     private int gcd(int a, int b){
         return b == 0 ? a : gcd (b, a % b);
+    }
+
+    public Fraction multiplyBy(int multi) {
+        return new Fraction(numerator*multi,denominator);
+    }
+
+    public Fraction multiplyBy(Fraction fraction) {
+        return new Fraction(this.numerator*fraction.numerator,this.denominator*fraction.denominator);
+    }
+
+
+
+
+    public static void main(String[] args) {
+        int a = -2;
+        int b = -2147483648;
+
+        System.out.println(a*b);
     }
 }
